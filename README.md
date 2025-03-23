@@ -1,3 +1,21 @@
+# Cumulus
+
+Cumulus is a modern, responsive weather web application built with React, Vite, and Tailwind CSS. It provides real-time weather data, city autocomplete search using Mapbox, and a sleek UI with dark mode support.
+
+## Features
+
+- Real-time current weather data
+- 5-day forecast (coming soon)
+- City autocomplete search (powered by Mapbox)
+- Weather fetch by city or geolocation
+- Dynamic weather details (temperature, humidity, wind speed, etc.)
+- Dark mode and light mode toggle
+- Responsive design for desktop and mobile
+- Interactive map integration (upcoming)
+
+
+
+
 ## Tech Stack
 
 - **Frontend:** React, Vite
