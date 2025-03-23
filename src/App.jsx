@@ -13,7 +13,7 @@ export default function App() {
   const [location, setLocation] = useState({ lat: null, lon: null });
 
   useEffect(() => {
-    // Get user's location on initial load
+  
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         try {
