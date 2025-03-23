@@ -1,12 +1,23 @@
-# React + Vite
+## Tech Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- **Frontend:** React, Vite
+- **Styling:** Tailwind CSS
+- **APIs:** 
+  - [OpenWeatherMap API](https://openweathermap.org/api) for weather data
+  - [Mapbox Geocoding API](https://docs.mapbox.com/api/search/geocoding/) for city suggestions
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js and npm installed
+- A Mapbox Access Token
+- An OpenWeatherMap API Key
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Installation
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/your-username/cumulus-weather-app.git
+cd cumulus-weather-app
