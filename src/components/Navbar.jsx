@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const MAPBOX_API_KEY = import.meta.env.VITE_MAPBOX_API_KEY;
 
-export default function Navbar({ onSearch }) {
+export default function Navbar({ onSearch, onLocationReload }) {
   const [darkMode, setDarkMode] = useState(() => localStorage.getItem('theme') === 'dark');
   const [city, setCity] = useState('');
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
@@ -102,7 +102,16 @@ export default function Navbar({ onSearch }) {
         >
           Search
         </button>
+        <button
+          type="button"
+          onClick={onLocationReload}
+          className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 transition text-sm sm:text-base">
+          Use My Location
+        </button>
       </form>
+
+      
+
 
       <button
         onClick={() => setDarkMode(!darkMode)}

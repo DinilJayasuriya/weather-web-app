@@ -13,27 +13,7 @@ export default function App() {
   const [location, setLocation] = useState({ lat: null, lon: null });
 
   useEffect(() => {
-  
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        try {
-          const { latitude, longitude } = position.coords;
-          setLocation({ lat: latitude, lon: longitude });
-          await fetchLocationData(latitude, longitude);
-        } catch (error) {
-          console.error('Error fetching location weather:', error);
-          // Fallback to a default city
-          searchCity('London');
-        } finally {
-          setLoading(false);
-        }
-      },
-      (error) => {
-        console.error('Geolocation error:', error);
-        searchCity('London');
-        setLoading(false);
-      }
-    );
+    fetchWeatherByLocation();
   }, []);
 
   const fetchLocationData = async (lat, lon) => {
@@ -78,10 +58,33 @@ export default function App() {
       setLoading(false);
     }
   };
+  const fetchWeatherByLocation = () => {
+    setLoading(true);
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        try {
+          const { latitude, longitude } = position.coords;
+          setLocation({ lat: latitude, lon: longitude });
+          await fetchLocationData(latitude, longitude);
+        } catch (error) {
+          console.error('Error fetching location weather:', error);
+          searchCity('Colombo'); // fallback
+        } finally {
+          setLoading(false);
+        }
+      },
+      (error) => {
+        console.error('Geolocation error:', error);
+        searchCity('Colombo'); // fallback
+        setLoading(false);
+      }
+    );
+  };
+  
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
-      <Navbar onSearch={searchCity} />
+      <Navbar onSearch={searchCity} onLocationReload= {fetchWeatherByLocation} />
       <div className="container mx-auto px-4 py-8">
         <Home weather={weather} airQuality={airQuality} loading={loading} />
         
